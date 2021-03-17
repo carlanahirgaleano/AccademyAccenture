@@ -1,0 +1,95 @@
+<mvc:View controllerName="EjercicioIntegrador1.EjercicioIntegrador1.controller.Main" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" 	xmlns:core="sap.ui.core" >
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					
+                    <subHeader>
+			<Toolbar>
+            <!-- FORMATEAR LA FECHA -->
+				<DatePicker width="30%" placeholder="{i18n>ingreseFecha}" value="{modelInfo>/fechaIngresada}"/>
+                <ComboBox width="30%" id="comboBox" change="onChangeItems"
+				items="{ path:'modelProducto>/productos'}" placeholder="{i18n>placeHolderSelect}" selectedKey="{modelInfo>/proveedor}"  >
+				<core:Item key="{modelProducto>proveedor}" text="{modelProducto>proveedor}" />
+			</ComboBox>
+            <Input width="30%" placeholder="{i18n>placeHolderPais}" value="{modelInfo>/paisIngresado}"></Input>
+            <Button text="{i18n>botonIr}"  type="Emphasized" press="openDialogIr"></Button>
+			</Toolbar>
+		</subHeader>
+<Toolbar>
+        <Title text="{i18n>titleTable}" titleStyle="H4"  textAlign="Right" ></Title>
+</Toolbar>
+        <!-- TABLA -->
+        <Table  items="{modelProducto>/productos}" id="TableProducts">
+        <headerToolbar>
+        <OverflowToolbar >
+        <SearchField width="30%" placeholder="{i18n>search}" liveChange="onSearch"/>
+        
+        </OverflowToolbar>
+        </headerToolbar>
+
+        <columns>
+			<Column >
+				<header>
+					<Text text="{i18n>producto}" />
+				</header>
+			</Column>
+			<Column >
+				<header>
+					<Text text="{i18n>proveedor} " />
+				</header>
+			</Column>
+			<Column
+				>
+				<header>
+					<Text text="{i18n>tamaño}"  />
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Text text="{i18n>peso}"  />
+				</header>
+			</Column>
+			<Column >
+				<header>
+					<Text text="{i18n>valor}"  />
+				</header>
+			</Column>
+		</columns>
+        <!--  Items -->
+        <items>
+        	<ColumnListItem type="Active" press="detailItem" >
+            
+			<cells>
+				<Text text="{modelProducto>producto}"></Text>
+			</cells>
+            <cells>
+				<Text text="{modelProducto>proveedor}" ></Text>
+			</cells>
+            <cells>
+				<Text text="{modelProducto>tamaño}"></Text>
+			</cells>
+            <cells>			
+                <ObjectNumber
+						number="{modelProducto>peso}"
+						unit="KG"
+						state="{
+                            path:'modelProducto>peso',
+							formatter:'.Format.formatPeso'}"/>               
+			</cells>
+            <cells>
+				 <ObjectNumber
+						number="{path: 'modelProducto>valor' , formatter:'.Format.formatDineroAEuro'}"
+						unit="EU"
+                        /> 
+			</cells>
+		</ColumnListItem>
+        </items>
+        </Table>
+
+                    
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

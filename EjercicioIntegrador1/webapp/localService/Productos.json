@@ -1,0 +1,34 @@
+{
+    "productos":[{
+        "producto": "Portable DVD Player",
+        "proveedor":"Titanium",
+        "tamaño":" 24 x 19.5 x 23",
+        "peso": 530 ,
+        "valor": 499
+    },
+    
+    {
+        "producto": "Astro Laptop 1516",
+        "proveedor":"UltraSonic",
+        "tamaño":"32 x 10 x 20 cm",
+        "peso":252 ,
+        "valor":225 
+    },
+    {
+        "producto": "Beam-Breaker",
+        "proveedor":"TechnoCom",
+        "tamaño":"10 x 20 x 15 cm ",
+        "peso":302 ,
+        "valor":425
+    },
+    {
+        "producto": "Blaster Extreme",
+        "proveedor":"Speakers Experts",
+        "tamaño":" 50 x 45 x 63 cm",
+        "peso":741,
+        "valor":524
+    }
+
+
+]
+}
